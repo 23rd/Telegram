@@ -2485,15 +2485,6 @@ public class NotificationsController extends BaseController {
             }
             wearNotificationsIds.clear();
             AndroidUtilities.runOnUIThread(() -> NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.pushMessagesUpdated));
-            if (WearDataLayerListenerService.isWatchConnected()) {
-                try {
-                    JSONObject o = new JSONObject();
-                    o.put("id", getUserConfig().getClientUserId());
-                    o.put("cancel_all", true);
-                    WearDataLayerListenerService.sendMessageToWatch("/notify", o.toString().getBytes(), "remote_notifications");
-                } catch (JSONException ignore) {
-                }
-            }
         } catch (Exception e) {
             FileLog.e(e);
         }
@@ -3857,9 +3848,6 @@ public class NotificationsController extends BaseController {
 
         ArrayList<NotificationHolder> holders = new ArrayList<>();
         JSONArray serializedNotifications = null;
-        if (WearDataLayerListenerService.isWatchConnected()) {
-            serializedNotifications = new JSONArray();
-        }
 
         boolean useSummaryNotification = Build.VERSION.SDK_INT <= Build.VERSION_CODES.O_MR1 || sortedDialogs.size() > 1;
         if (useSummaryNotification && Build.VERSION.SDK_INT >= 26) {
@@ -4476,7 +4464,6 @@ public class NotificationsController extends BaseController {
                 JSONObject s = new JSONObject();
                 s.put("id", selfUserId);
                 s.put("n", serializedNotifications);
-                WearDataLayerListenerService.sendMessageToWatch("/notify", s.toString().getBytes(), "remote_notifications");
             } catch (Exception ignore) {
             }
         }
