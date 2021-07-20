@@ -38,6 +38,12 @@ jobs:
           HOCKEY_APP_HASH: ${{ secrets.HOCKEY_APP_HASH }}
           USER_ID_OWNER: ${{ secrets.USER_ID_OWNER }}
         run: |
+          sudo $ANDROID_HOME/tools/bin/sdkmanager "build-tools;31.0.0"
+          ### Workaround from Dockerfile.
+          sudo cp $ANDROID_HOME/build-tools/30.0.3/dx $ANDROID_HOME/build-tools/31.0.0/dx
+          sudo cp $ANDROID_HOME/build-tools/30.0.3/lib/dx.jar $ANDROID_HOME/build-tools/31.0.0/lib/dx.jar
+          ###
+
           echo $ADDITIONAL_BUILD_NUMBER
           sudo apt update
           sudo apt install openjdk-8-jdk openjdk-11-jre
