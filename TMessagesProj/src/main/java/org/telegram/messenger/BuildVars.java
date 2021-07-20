@@ -41,7 +41,7 @@ public class BuildVars {
         APP_HASH = BuildConfig.APP_HASH;
         PLAYSTORE_APP_URL = "";
         SMS_HASH = "";
-        DEBUG_VERSION = true;
+        DEBUG_VERSION = false;
         CHECK_UPDATES = true;
         BUILD_VERSION *= 10;
         BUILD_VERSION += BuildConfig.ADDITIONAL_BUILD_NUMBER;

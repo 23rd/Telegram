@@ -173,6 +173,7 @@ android {
             debuggable false
             jniDebuggable false
             signingConfig signingConfigs.release
+            applicationIdSuffix ".beta"
             minifyEnabled true
             shrinkResources false
             multiDexEnabled true
@@ -194,11 +195,11 @@ android {
     }
 
     sourceSets.standalone {
-        manifest.srcFile 'config/release/AndroidManifest.xml'
+        manifest.srcFile 'config/debug/AndroidManifest.xml'
     }
 
     sourceSets.release {
-        manifest.srcFile 'config/release/AndroidManifest.xml'
+        manifest.srcFile 'config/debug/AndroidManifest.xml'
     }
 
     flavorDimensions "minApi"
@@ -228,7 +229,7 @@ android {
                 manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             minSdkVersion 23
             ext {
@@ -243,7 +244,7 @@ android {
                 manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             minSdkVersion 23
             ext {
@@ -274,7 +275,7 @@ android {
                 manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             minSdkVersion 23
             ext {
@@ -289,7 +290,7 @@ android {
                 manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             minSdkVersion 23
             ext {
@@ -304,10 +305,10 @@ android {
                 manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
             }
             sourceSets.standalone {
-                manifest.srcFile 'config/release/AndroidManifest_standalone.xml'
+                manifest.srcFile 'config/debug/AndroidManifest_standalone.xml'
             }
             ext {
                 abiVersionCode = 9
